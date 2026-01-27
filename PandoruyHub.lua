@@ -85,12 +85,12 @@ local Icons = {
     dcs       = "rbxassetid://15310731934",
     start     = "rbxassetid://108886429866687",
     next      = "rbxassetid://12662718374",
-    boost  = "rbxassetid://13321880293",
+    boost     = "rbxassetid://13321880293",
     mutation  = "rbxassetid://110087490628825",
     pet       = "rbxassetid://15522743916",
     rod       = "rbxassetid://103247953194129",
     moon      = "rbxassetid://7743870134",
-    gajah     = "rbxassetid://18210094704",
+    gajah     = "rbxassetid://6846692984",
     fish      = "rbxassetid://97167558235554",
 }
 
