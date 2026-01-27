@@ -473,7 +473,7 @@ function PandoruyHub:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
     GuiConfig.Title        = GuiConfig.Title or "PandoruyHub"
     GuiConfig.Footer       = GuiConfig.Footer or "Pandoruy"
-    GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(220, 50, 50)
+    GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 60, 60)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
 
