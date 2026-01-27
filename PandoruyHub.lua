@@ -550,7 +550,7 @@ function PandoruyHub:Window(GuiConfig)
         Main.ImageTransparency = GuiConfig.ThemeTransparency or 0.15
     else
         Main.BackgroundColor3 = GuiConfig.Background or Color3.fromRGB(15, 15, 20)
-        Main.BackgroundTransparency = GuiConfig.BackgroundTransparency or 0.15
+        Main.BackgroundTransparency = GuiConfig.BackgroundTransparency or 0.10
     end
 
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
