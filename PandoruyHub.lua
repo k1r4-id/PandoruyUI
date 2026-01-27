@@ -86,6 +86,7 @@ local Icons = {
     start     = "rbxassetid://108886429866687",
     next      = "rbxassetid://12662718374",
     boost  = "rbxassetid://13321880293",
+    mutation  = "rbxassetid://110087490628825",
     pet       = "rbxassetid://15522743916",
     rod       = "rbxassetid://103247953194129",
     moon      = "rbxassetid://7743870134",
