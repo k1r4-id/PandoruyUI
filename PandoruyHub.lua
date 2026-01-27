@@ -473,7 +473,7 @@ function PandoruyHub:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
     GuiConfig.Title        = GuiConfig.Title or "PandoruyHub"
     GuiConfig.Footer       = GuiConfig.Footer or "Pandoruy"
-    GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 165, 0)
+    GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(220, 50, 50)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
 
@@ -547,8 +547,8 @@ function PandoruyHub:Window(GuiConfig)
         Main.BackgroundTransparency = 1
         Main.ImageTransparency = GuiConfig.ThemeTransparency or 0.15
     else
-        Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        Main.BackgroundTransparency = 0
+        Main.BackgroundColor3 = GuiConfig.Background or Color3.fromRGB(25, 25, 30)
+        Main.BackgroundTransparency = GuiConfig.BackgroundTransparency or 0
     end
 
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
