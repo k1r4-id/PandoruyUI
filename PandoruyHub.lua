@@ -876,7 +876,11 @@ function PandoruyHub:Window(GuiConfig)
         MainButton.Size = UDim2.new(0, 40, 0, 40)
         MainButton.Position = UDim2.new(0, 20, 0, 100)
         MainButton.BackgroundTransparency = 1
-        MainButton.Image = "rbxassetid://" .. GuiConfig.Image
+        if GuiConfig.Image then
+            MainButton.Image = "rbxassetid://" .. tostring(GuiConfig.Image)
+        else
+            MainButton.Image = "rbxassetid://6340513838"
+        end
         MainButton.ScaleType = Enum.ScaleType.Fit
 
         local UICorner = Instance.new("UICorner")
