@@ -2392,6 +2392,7 @@ function PandoruyHub:Window(GuiConfig)
                 OptionSelecting.TextSize = 12
                 OptionSelecting.TextTransparency = 0.6
                 OptionSelecting.TextXAlignment = Enum.TextXAlignment.Left
+                OptionSelecting.TextTruncate = Enum.TextTruncate.AtEnd
                 OptionSelecting.AnchorPoint = Vector2.new(0, 0.5)
                 OptionSelecting.BackgroundTransparency = 1
                 OptionSelecting.Position = UDim2.new(0, 5, 0.5, 0)
