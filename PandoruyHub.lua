@@ -88,7 +88,7 @@ local Icons = {
     arrowup  = "rbxassetid://7733673717",
     rod       = "rbxassetid://103247953194129",
     moon      = "rbxassetid://7743870134",
-    gajah     = "rbxassetid://74361752957422",
+    gajah     = "rbxassetid://18210094746",
     fish      = "rbxassetid://97167558235554",
 }
 
