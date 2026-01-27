@@ -59,7 +59,7 @@ local Icons = {
     shop      = "rbxassetid://4985385964",
     cart      = "rbxassetid://128874923961846",
     plug      = "rbxassetid://137601480983962",
-    settings  = "rbxassetid://70386228443175",
+    settings  = "rbxassetid://9405931596",
     loop      = "rbxassetid://122032243989747",
     gps       = "rbxassetid://17824309485",
     compas    = "rbxassetid://125300760963399",
@@ -91,6 +91,7 @@ local Icons = {
     rod       = "rbxassetid://103247953194129",
     moon      = "rbxassetid://7743870134",
     gajah     = "rbxassetid://6846692984",
+    misc      = "rbxassetid://9405921264",
     fish      = "rbxassetid://97167558235554",
 }
 
