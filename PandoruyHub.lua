@@ -85,7 +85,9 @@ local Icons = {
     dcs       = "rbxassetid://15310731934",
     start     = "rbxassetid://108886429866687",
     next      = "rbxassetid://12662718374",
+    arrow-up  = "rbxassetid://7733673717",
     rod       = "rbxassetid://103247953194129",
+    moon      = "rbxassetid://7743870134",
     fish      = "rbxassetid://97167558235554",
 }
 
