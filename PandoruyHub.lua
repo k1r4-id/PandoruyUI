@@ -791,11 +791,11 @@ function PandoruyHub:Window(GuiConfig)
 
         local Gradient = Instance.new("UIGradient")
         Gradient.Color = ColorSequence.new({
-            ColorSequenceKeypoint.new(0.0, Color3.fromRGB(0, 191, 255)),
+            ColorSequenceKeypoint.new(0.0, GuiConfig.Color),
             ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)),
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 140, 255)),
+            ColorSequenceKeypoint.new(0.5, GuiConfig.Color),
             ColorSequenceKeypoint.new(0.75, Color3.fromRGB(255, 255, 255)),
-            ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 191, 255))
+            ColorSequenceKeypoint.new(1.0, GuiConfig.Color)
         })
         Gradient.Rotation = 90
         Gradient.Parent = DialogGlow
@@ -1019,13 +1019,13 @@ function PandoruyHub:Window(GuiConfig)
     UICorner36.CornerRadius = UDim.new(0, 3)
     UICorner36.Parent = DropdownSelect
 
-    UIStroke14.Color = Color3.fromRGB(12, 159, 255)
+    UIStroke14.Color = GuiConfig.Color
     UIStroke14.Thickness = 2.5
     UIStroke14.Transparency = 0.8
     UIStroke14.Parent = DropdownSelect
 
     DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 27, 98)
+    DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(30, 15, 15)
     DropdownSelectReal.BackgroundTransparency = 0.7
     DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
     DropdownSelectReal.BorderSizePixel = 0
