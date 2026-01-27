@@ -524,9 +524,7 @@ function PandoruyHub:Window(GuiConfig)
     DropShadowHolder.ZIndex = 0
     DropShadowHolder.Name = "DropShadowHolder"
     DropShadowHolder.Parent = Chloeex
-
-    DropShadowHolder.Position = UDim2.new(0, (Chloeex.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
-        (Chloeex.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
+    -- Position is already centered via AnchorPoint(0.5, 0.5) and Position(0.5, 0.5)
     DropShadow.Image = "rbxassetid://6015897843"
     DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
     DropShadow.ImageTransparency = 1
@@ -1494,7 +1492,7 @@ function PandoruyHub:Window(GuiConfig)
                 ParagraphContent.BackgroundTransparency = 1
                 ParagraphContent.Position = UDim2.new(0, iconOffset, 0, 25)
                 ParagraphContent.Name = "ParagraphContent"
-                ParagraphContent.TextWrapped = false
+                ParagraphContent.TextWrapped = true
                 ParagraphContent.RichText = true
                 ParagraphContent.Parent = Paragraph
 
