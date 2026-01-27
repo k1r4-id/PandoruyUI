@@ -105,15 +105,17 @@ end
 local isMobile = isMobileDevice()
 
 local function safeSize(pxWidth, pxHeight)
-    local scaleX = pxWidth / viewport.X
-    local scaleY = pxHeight / viewport.Y
+    local width = pxWidth
+    local height = pxHeight
 
     if isMobile then
-        if scaleX > 0.5 then scaleX = 0.5 end
-        if scaleY > 0.3 then scaleY = 0.3 end
+        local maxWidth = viewport.X * 0.5
+        local maxHeight = viewport.Y * 0.3
+        if width > maxWidth then width = maxWidth end
+        if height > maxHeight then height = maxHeight end
     end
 
-    return UDim2.new(scaleX, 0, scaleY, 0)
+    return UDim2.new(0, width, 0, height)
 end
 
 local function MakeDraggable(topbarobject, object)
