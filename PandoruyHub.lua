@@ -1,17 +1,17 @@
 local HttpService = game:GetService("HttpService")
 
-if not isfolder("PandoruyHub") then
-    makefolder("PandoruyHub")
+if not isfolder("Pandora_KG") then
+    makefolder("Pandora_KG")
 end
-if not isfolder("PandoruyHub/Config") then
-    makefolder("PandoruyHub/Config")
+if not isfolder("Pandora_KG/Config") then
+    makefolder("Pandora_KG/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "PandoruyHub/Config/PDH_" .. gameName .. ".json"
+local ConfigFile = "Pandora_KG/Config/PDH_" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
@@ -86,6 +86,7 @@ local Icons = {
     start     = "rbxassetid://108886429866687",
     next      = "rbxassetid://12662718374",
     boost     = "rbxassetid://11448533494",
+    growth    = "rbxassetid://126516290702005",
     mutation  = "rbxassetid://132396415044039",
     pet       = "rbxassetid://94644088197632",
     rod       = "rbxassetid://103247953194129",
