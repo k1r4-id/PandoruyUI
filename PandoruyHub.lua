@@ -1058,7 +1058,17 @@ function PandoruyHub:Window(GuiConfig)
     DropPageLayout.Name = "DropPageLayout"
     DropPageLayout.Parent = DropdownFolder
     --// Tabs
-    local Tabs = {}
+    local TabsInternal = {}
+    local Tabs = setmetatable({}, {
+        __index = TabsInternal,
+        __newindex = function(t, k, v)
+            if k == "OnDestroy" then
+                -- Bridge OnDestroy to GuiFunc so close handler can access it
+                GuiFunc.OnDestroy = v
+            end
+            rawset(TabsInternal, k, v)
+        end
+    })
     local CountTab = 0
     local CountDropdown = 0
     function Tabs:AddTab(TabConfig)
