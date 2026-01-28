@@ -881,7 +881,7 @@ function PandoruyHub:Window(GuiConfig)
 
         local MainButton = Instance.new("ImageLabel")
         MainButton.Parent = ScreenGui
-        MainButton.Size = UDim2.new(0, 40, 0, 40)
+        MainButton.Size = UDim2.new(0, 60, 0, 60)
         MainButton.Position = UDim2.new(0, 20, 0, 100)
         MainButton.BackgroundTransparency = 1
         if GuiConfig.Image then
