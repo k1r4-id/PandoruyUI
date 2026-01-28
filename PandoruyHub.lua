@@ -773,10 +773,11 @@ function PandoruyHub:Window(GuiConfig)
         Overlay.ZIndex = 50
         Overlay.Parent = DropShadowHolder
 
-        local Dialog = Instance.new("Frame")
+        local Dialog = Instance.new("ImageLabel")
         Dialog.Size = UDim2.new(0, 300, 0, 150)
         Dialog.Position = UDim2.new(0.5, -150, 0.5, -75)
-        Dialog.BackgroundColor3 = Color3.fromRGB(60, 20, 25) -- Bloodmoon red background
+        Dialog.Image = "rbxassetid://9542022979"
+        Dialog.BackgroundTransparency = 1
         Dialog.BorderSizePixel = 0
         Dialog.ZIndex = 51
         Dialog.Parent = Overlay
