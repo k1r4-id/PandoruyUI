@@ -93,6 +93,7 @@ local Icons = {
     gajah     = "rbxassetid://6846692984",
     misc      = "rbxassetid://9405921264",
     fish      = "rbxassetid://97167558235554",
+    inventory = "rbxassetid://8601111810",
 }
 
 local UserInputService = game:GetService("UserInputService")
