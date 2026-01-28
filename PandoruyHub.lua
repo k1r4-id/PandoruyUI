@@ -777,7 +777,7 @@ function PandoruyHub:Window(GuiConfig)
         Dialog.Size = UDim2.new(0, 300, 0, 150)
         Dialog.Position = UDim2.new(0.5, -150, 0.5, -75)
         Dialog.Image = "rbxassetid://9542022979"
-        Dialog.ImageColor3 = Color3.fromRGB(100, 30, 35) -- Bloodmoon red (brighter)
+        Dialog.ImageColor3 = Color3.fromRGB(140, 35, 40) -- Bloodmoon red (more visible)
         Dialog.ImageTransparency = 0
         Dialog.BorderSizePixel = 0
         Dialog.ZIndex = 51
