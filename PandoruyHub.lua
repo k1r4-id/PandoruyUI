@@ -776,7 +776,7 @@ function PandoruyHub:Window(GuiConfig)
         local Dialog = Instance.new("ImageLabel")
         Dialog.Size = UDim2.new(0, 300, 0, 150)
         Dialog.Position = UDim2.new(0.5, -150, 0.5, -75)
-        Dialog.Image = "rbxassetid://9542022979"
+        Dialog.Image = "rbxassetid://10411528536"
         Dialog.BackgroundTransparency = 1
         Dialog.BorderSizePixel = 0
         Dialog.ZIndex = 51
