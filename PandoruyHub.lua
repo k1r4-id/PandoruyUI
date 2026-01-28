@@ -861,6 +861,10 @@ function PandoruyHub:Window(GuiConfig)
         Instance.new("UICorner", Cancel).CornerRadius = UDim.new(0, 6)
 
         Yes.MouseButton1Click:Connect(function()
+            -- Call OnDestroy callback to stop all modules
+            if GuiFunc.OnDestroy then
+                pcall(GuiFunc.OnDestroy)
+            end
             if Chloeex then Chloeex:Destroy() end
             if game.CoreGui:FindFirstChild("ToggleUIButton") then
                 game.CoreGui.ToggleUIButton:Destroy()
