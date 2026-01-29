@@ -1,17 +1,22 @@
 local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local username = Players.LocalPlayer and Players.LocalPlayer.Name or "Unknown"
 
 if not isfolder("Pandora_KG") then
     makefolder("Pandora_KG")
 end
-if not isfolder("Pandora_KG/Config") then
-    makefolder("Pandora_KG/Config")
+if not isfolder("Pandora_KG/" .. username) then
+    makefolder("Pandora_KG/" .. username)
+end
+if not isfolder("Pandora_KG/" .. username .. "/Config") then
+    makefolder("Pandora_KG/" .. username .. "/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "Pandora_KG/Config/PDH_" .. gameName .. ".json"
+local ConfigFile = "Pandora_KG/" .. username .. "/Config/PDH_" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
