@@ -99,6 +99,7 @@ local Icons = {
     gajah     = "rbxassetid://6846692978",
     misc      = "rbxassetid://9405931578",
     fish      = "rbxassetid://97167558235554",
+    egg       = "rbxassetid://14394875994",
     inventory = "rbxassetid://8601111810",
 }
 
