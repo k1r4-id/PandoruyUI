@@ -2,21 +2,35 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local username = Players.LocalPlayer and Players.LocalPlayer.Name or "Unknown"
 
-if not isfolder("Pandora_KG") then
-    makefolder("Pandora_KG")
-end
-if not isfolder("Pandora_KG/" .. username) then
-    makefolder("Pandora_KG/" .. username)
-end
-if not isfolder("Pandora_KG/" .. username .. "/Config") then
-    makefolder("Pandora_KG/" .. username .. "/Config")
-end
-
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "Pandora_KG/" .. username .. "/Config/PDH_" .. gameName .. ".json"
+-- Default config folder (can be overridden via Window ConfigFolder parameter)
+local ConfigBase = "PandoruyHub"
+local ConfigFile = ConfigBase .. "/" .. username .. "/Config/PDH_" .. gameName .. ".json"
+
+local function EnsureConfigFolders(base)
+    local parts = {}
+    for part in string.gmatch(base, "[^/]+") do
+        table.insert(parts, part)
+    end
+    local current = ""
+    for _, part in ipairs(parts) do
+        current = current == "" and part or (current .. "/" .. part)
+        if not isfolder(current) then
+            makefolder(current)
+        end
+    end
+    if not isfolder(base .. "/" .. username) then
+        makefolder(base .. "/" .. username)
+    end
+    if not isfolder(base .. "/" .. username .. "/Config") then
+        makefolder(base .. "/" .. username .. "/Config")
+    end
+end
+
+EnsureConfigFolders(ConfigBase)
 
 ConfigData       = {}
 Elements         = {}
@@ -492,6 +506,13 @@ function PandoruyHub:Window(GuiConfig)
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 60, 60)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
+
+    -- Custom config folder per-game (e.g. "PandoruyHub/GAG", "PandoruyHub/KG")
+    if GuiConfig.ConfigFolder then
+        ConfigBase = GuiConfig.ConfigFolder
+        ConfigFile = ConfigBase .. "/" .. username .. "/Config/PDH_" .. gameName .. ".json"
+        EnsureConfigFolders(ConfigBase)
+    end
 
     CURRENT_VERSION        = GuiConfig.Version
     LoadConfigFromFile()
