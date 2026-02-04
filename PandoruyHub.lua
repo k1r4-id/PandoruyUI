@@ -6,9 +6,9 @@ local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
--- Default config folder (can be overridden via Window ConfigFolder parameter)
-local ConfigBase = "PandoruyHub"
-local ConfigFile = ConfigBase .. "/" .. username .. "/Config/PDH_" .. gameName .. ".json"
+-- Config folder (set via Window ConfigFolder parameter, default "PandoruyHub")
+local ConfigBase = nil
+local ConfigFile = nil
 
 local function EnsureConfigFolders(base)
     local parts = {}
@@ -29,8 +29,6 @@ local function EnsureConfigFolders(base)
         makefolder(base .. "/" .. username .. "/Config")
     end
 end
-
-EnsureConfigFolders(ConfigBase)
 
 ConfigData       = {}
 Elements         = {}
@@ -507,12 +505,10 @@ function PandoruyHub:Window(GuiConfig)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
 
-    -- Custom config folder per-game (e.g. "PandoruyHub/GAG", "PandoruyHub/KG")
-    if GuiConfig.ConfigFolder then
-        ConfigBase = GuiConfig.ConfigFolder
-        ConfigFile = ConfigBase .. "/" .. username .. "/Config/PDH_" .. gameName .. ".json"
-        EnsureConfigFolders(ConfigBase)
-    end
+    -- Config folder per-game (e.g. "PandoruyHub/GAG", "PandoruyHub/KG")
+    ConfigBase = GuiConfig.ConfigFolder or "PandoruyHub"
+    ConfigFile = ConfigBase .. "/" .. username .. "/Config/PDH_" .. gameName .. ".json"
+    EnsureConfigFolders(ConfigBase)
 
     CURRENT_VERSION        = GuiConfig.Version
     LoadConfigFromFile()
