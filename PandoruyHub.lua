@@ -1020,8 +1020,8 @@ function PandoruyHub:Window(GuiConfig)
     DropdownSelect.BorderColor3 = Color3.fromRGB(0, 0, 0)
     DropdownSelect.BorderSizePixel = 0
     DropdownSelect.LayoutOrder = 1
-    DropdownSelect.Position = UDim2.new(1, 172, 0.5, 0)
-    DropdownSelect.Size = UDim2.new(0, 160, 1, -16)
+    DropdownSelect.Position = UDim2.new(1, 262, 0.5, 0)
+    DropdownSelect.Size = UDim2.new(0, 250, 1, -16)
     DropdownSelect.Name = "DropdownSelect"
     DropdownSelect.ClipsDescendants = true
     DropdownSelect.Parent = MoreBlur
@@ -1029,7 +1029,7 @@ function PandoruyHub:Window(GuiConfig)
     ConnectButton.Activated:Connect(function()
         if MoreBlur.Visible then
             TweenService:Create(MoreBlur, TweenInfo.new(0.3), { BackgroundTransparency = 0.999 }):Play()
-            TweenService:Create(DropdownSelect, TweenInfo.new(0.3), { Position = UDim2.new(1, 172, 0.5, 0) }):Play()
+            TweenService:Create(DropdownSelect, TweenInfo.new(0.3), { Position = UDim2.new(1, 262, 0.5, 0) }):Play()
             task.wait(0.3)
             MoreBlur.Visible = false
         end
@@ -2376,7 +2376,7 @@ function PandoruyHub:Window(GuiConfig)
                 DropdownTitle.TextXAlignment = Enum.TextXAlignment.Left
                 DropdownTitle.BackgroundTransparency = 1
                 DropdownTitle.Position = UDim2.new(0, 10, 0, 10)
-                DropdownTitle.Size = UDim2.new(1, -180, 0, 13)
+                DropdownTitle.Size = UDim2.new(1, -250, 0, 13)
                 DropdownTitle.Name = "DropdownTitle"
                 DropdownTitle.Parent = Dropdown
 
@@ -2389,14 +2389,14 @@ function PandoruyHub:Window(GuiConfig)
                 DropdownContent.TextXAlignment = Enum.TextXAlignment.Left
                 DropdownContent.BackgroundTransparency = 1
                 DropdownContent.Position = UDim2.new(0, 10, 0, 25)
-                DropdownContent.Size = UDim2.new(1, -180, 0, 12)
+                DropdownContent.Size = UDim2.new(1, -250, 0, 12)
                 DropdownContent.Name = "DropdownContent"
                 DropdownContent.Parent = Dropdown
 
                 SelectOptionsFrame.AnchorPoint = Vector2.new(1, 0.5)
                 SelectOptionsFrame.BackgroundTransparency = 0.95
                 SelectOptionsFrame.Position = UDim2.new(1, -7, 0.5, 0)
-                SelectOptionsFrame.Size = UDim2.new(0, 148, 0, 30)
+                SelectOptionsFrame.Size = UDim2.new(0, 220, 0, 30)
                 SelectOptionsFrame.Name = "SelectOptionsFrame"
                 SelectOptionsFrame.LayoutOrder = CountDropdown
                 SelectOptionsFrame.Parent = Dropdown
