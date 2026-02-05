@@ -528,6 +528,8 @@ function PandoruyHub:Window(GuiConfig)
     local ImageLabel1 = Instance.new("ImageLabel");
     local Min = Instance.new("TextButton");
     local ImageLabel2 = Instance.new("ImageLabel");
+    local Fullscreen = Instance.new("TextButton");
+    local ImageLabel3 = Instance.new("ImageLabel");
     local LayersTab = Instance.new("Frame");
     local UICorner2 = Instance.new("UICorner");
     local DecideFrame = Instance.new("Frame");
@@ -661,7 +663,7 @@ function PandoruyHub:Window(GuiConfig)
     Min.BackgroundTransparency = 0.9990000128746033
     Min.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Min.BorderSizePixel = 0
-    Min.Position = UDim2.new(1, -38, 0.5, 0)
+    Min.Position = UDim2.new(1, -68, 0.5, 0)
     Min.Size = UDim2.new(0, 25, 0, 25)
     Min.Name = "Min"
     Min.Parent = Top
@@ -676,6 +678,31 @@ function PandoruyHub:Window(GuiConfig)
     ImageLabel2.Position = UDim2.new(0.5, 0, 0.5, 0)
     ImageLabel2.Size = UDim2.new(1, -9, 1, -9)
     ImageLabel2.Parent = Min
+
+    Fullscreen.Font = Enum.Font.SourceSans
+    Fullscreen.Text = ""
+    Fullscreen.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Fullscreen.TextSize = 14
+    Fullscreen.AnchorPoint = Vector2.new(1, 0.5)
+    Fullscreen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Fullscreen.BackgroundTransparency = 0.9990000128746033
+    Fullscreen.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Fullscreen.BorderSizePixel = 0
+    Fullscreen.Position = UDim2.new(1, -38, 0.5, 0)
+    Fullscreen.Size = UDim2.new(0, 25, 0, 25)
+    Fullscreen.Name = "Fullscreen"
+    Fullscreen.Parent = Top
+
+    ImageLabel3.Image = "rbxassetid://6035067836"
+    ImageLabel3.AnchorPoint = Vector2.new(0.5, 0.5)
+    ImageLabel3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel3.BackgroundTransparency = 0.9990000128746033
+    ImageLabel3.ImageTransparency = 0.2
+    ImageLabel3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ImageLabel3.BorderSizePixel = 0
+    ImageLabel3.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ImageLabel3.Size = UDim2.new(1, -9, 1, -9)
+    ImageLabel3.Parent = Fullscreen
 
     LayersTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     LayersTab.BackgroundTransparency = 0.9990000128746033
@@ -787,6 +814,35 @@ function PandoruyHub:Window(GuiConfig)
         CircleClick(Min, Mouse.X, Mouse.Y)
         DropShadowHolder.Visible = false
     end)
+
+    -- Fullscreen toggle state
+    local isFullscreen = false
+    local originalSize = DropShadowHolder.Size
+    local originalPosition = DropShadowHolder.Position
+
+    Fullscreen.Activated:Connect(function()
+        CircleClick(Fullscreen, Mouse.X, Mouse.Y)
+        if isFullscreen then
+            -- Restore original size
+            TweenService:Create(DropShadowHolder, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                Size = originalSize,
+                Position = originalPosition
+            }):Play()
+            ImageLabel3.Image = "rbxassetid://6035067836" -- expand icon
+            isFullscreen = false
+        else
+            -- Save original size and go fullscreen
+            originalSize = DropShadowHolder.Size
+            originalPosition = DropShadowHolder.Position
+            TweenService:Create(DropShadowHolder, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                Size = UDim2.new(1, 0, 1, 0),
+                Position = UDim2.new(0.5, 0, 0.5, 0)
+            }):Play()
+            ImageLabel3.Image = "rbxassetid://6035047409" -- minimize/restore icon
+            isFullscreen = true
+        end
+    end)
+
     Close.Activated:Connect(function()
         CircleClick(Close, Mouse.X, Mouse.Y)
 
