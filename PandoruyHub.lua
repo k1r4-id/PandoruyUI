@@ -693,7 +693,7 @@ function PandoruyHub:Window(GuiConfig)
     Fullscreen.Name = "Fullscreen"
     Fullscreen.Parent = Top
 
-    ImageLabel3.Image = "rbxassetid://6035067836"
+    ImageLabel3.Image = "rbxassetid://6031094671"
     ImageLabel3.AnchorPoint = Vector2.new(0.5, 0.5)
     ImageLabel3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ImageLabel3.BackgroundTransparency = 0.9990000128746033
@@ -828,7 +828,7 @@ function PandoruyHub:Window(GuiConfig)
                 Size = originalSize,
                 Position = originalPosition
             }):Play()
-            ImageLabel3.Image = "rbxassetid://6035067836" -- expand icon
+            ImageLabel3.Image = "rbxassetid://6031094671" -- square/maximize icon
             isFullscreen = false
         else
             -- Save original size and go fullscreen
@@ -838,7 +838,7 @@ function PandoruyHub:Window(GuiConfig)
                 Size = UDim2.new(1, 0, 1, 0),
                 Position = UDim2.new(0.5, 0, 0.5, 0)
             }):Play()
-            ImageLabel3.Image = "rbxassetid://6035047409" -- minimize/restore icon
+            ImageLabel3.Image = "rbxassetid://6031094678" -- restore icon
             isFullscreen = true
         end
     end)
