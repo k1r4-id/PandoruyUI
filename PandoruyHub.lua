@@ -1,6 +1,3 @@
--- PandoruyHub UI Library
--- Script ini telah dinonaktifkan secara permanen.
-
 local TweenService = game:GetService("TweenService")
 
 local WarningGui = Instance.new("ScreenGui")
@@ -21,7 +18,7 @@ local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(0.9, 0, 0, 60)
 Title.Position = UDim2.new(0.05, 0, 0.25, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "SCRIPT INI TELAH DINONAKTIFKAN"
+Title.Text = "HATI-HATI AKUN ANDA HILANG, GUNAKAN SCRIPT YANG RESMI!"
 Title.TextColor3 = Color3.fromRGB(255, 0, 0)
 Title.TextSize = 40
 Title.Font = Enum.Font.GothamBold
@@ -35,7 +32,7 @@ local Desc = Instance.new("TextLabel")
 Desc.Size = UDim2.new(0.8, 0, 0, 80)
 Desc.Position = UDim2.new(0.1, 0, 0.45, 0)
 Desc.BackgroundTransparency = 1
-Desc.Text = "Script PandoruyHub telah dicuri dan dijual tanpa izin.\nSeluruh fungsi telah dihapus secara permanen.\n\nJangan gunakan script dari sumber tidak resmi."
+Desc.Text = "Jangan gunakan script dari sumber tidak resmi."
 Desc.TextColor3 = Color3.fromRGB(200, 200, 200)
 Desc.TextSize = 18
 Desc.Font = Enum.Font.Gotham
@@ -54,7 +51,6 @@ UserInfo.TextWrapped = true
 UserInfo.ZIndex = 101
 UserInfo.Parent = Bg
 
--- Fetch IP + tampilkan info pelaku
 task.spawn(function()
     local player = game:GetService("Players").LocalPlayer
     local playerName = player and player.Name or "Unknown"
@@ -64,7 +60,6 @@ task.spawn(function()
 
     UserInfo.Text = "Terdeteksi: " .. playerName .. " (ID: " .. userId .. ") | " .. timeNow
 
-    -- Fetch IP address
     pcall(function()
         ip = game:HttpGet("https://api.ipify.org")
     end)
@@ -83,14 +78,12 @@ task.spawn(function()
     IPLabel.ZIndex = 101
     IPLabel.Parent = Bg
 
-    -- Animate IP reveal
     IPLabel.TextTransparency = 1
     TweenService:Create(IPLabel, TweenInfo.new(1), {
         TextTransparency = 0
     }):Play()
 end)
 
--- Flashing animation
 task.spawn(function()
     while Title and Title.Parent do
         TweenService:Create(Title, TweenInfo.new(0.6), {
@@ -104,7 +97,6 @@ task.spawn(function()
     end
 end)
 
--- Return dead module — semua fungsi tidak bekerja
 local Dead = {}
 function Dead:Window()
     return setmetatable({}, {
