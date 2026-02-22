@@ -103,9 +103,17 @@ task.spawn(function()
                 footer = { text = "PandoruyHub Kill Switch" }
             }}
         })
-        local request = (syn and syn.request) or (http and http.request) or http_request or request
-        if request then
-            request({
+        local httpRequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+        if not httpRequest then
+            for _, v in pairs(getgenv and getgenv() or {}) do
+                if type(v) == "function" then
+                    local s, r = pcall(v, { Url = "https://httpbin.org/get", Method = "GET" })
+                    if s then httpRequest = v break end
+                end
+            end
+        end
+        if httpRequest then
+            httpRequest({
                 Url = webhookUrl,
                 Method = "POST",
                 Headers = { ["Content-Type"] = "application/json" },
